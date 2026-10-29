@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cummins × Starlink · Every site online</title>
+<link rel="icon" href="shared/logos/favicon.svg">
+<link rel="stylesheet" href="shared/fonts/fonts.css">
+<script src="shared/vendor/react.production.min.js"></script>
+<script src="shared/vendor/react-dom.production.min.js"></script>
+<script src="assets/world.js"></script>
+<script src="shared/runtime/support.js"></script>
+</head>
+<body>
+
+<x-dc>
+<helmet>
+<style>
+  html, body { margin:0; padding:0; height:100%; overflow:hidden; background:#000; color:#fff; font-family:'Inter',ui-sans-serif,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  button { font-family:inherit; }
+  @keyframes csIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+  @keyframes csBlink { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
+  @keyframes csFlow { from { background-position:0 0; } to { background-position:96px 0; } }
+  .cs-in { animation:csIn .7s cubic-bezier(.2,.7,.2,1) both; }
+  .cs-blink { animation:csBlink 1.8s ease-in-out infinite; }
+  .cs-flow { background-image:repeating-linear-gradient(90deg, rgba(255,255,255,0.9) 0 10px, transparent 10px 24px); background-size:96px 100%; animation:csFlow 1.2s linear infinite; }
+  .cs-still .cs-in, .cs-still .cs-blink, .cs-still .cs-flow { animation:none; }
+  @media (prefers-reduced-motion: reduce) { .cs-in, .cs-blink, .cs-flow { animation:none; } }
+</style>
+</helmet>
+<div class="{{ rootClass }}" style="position:fixed;inset:0;overflow:hidden;background:#000;user-select:none">
+<div style="position:absolute;left:{{ ox }}px;top:{{ oy }}px;width:1920px;height:1080px;transform:scale({{ scale }});transform-origin:0 0;overflow:hidden;background:#000">
+
+  <div style="position:absolute;inset:0">{{ canvasEl }}</div>
+  <div style="position:absolute;left:0;top:0;width:1920px;height:390px;background:linear-gradient(180deg,#000 0%,rgba(0,0,0,0.85) 55%,rgba(0,0,0,0) 100%);pointer-events:none"></div>
+  <div style="position:absolute;left:0;bottom:0;width:1920px;height:340px;background:linear-gradient(0deg,#000 0%,rgba(0,0,0,0.85) 50%,rgba(0,0,0,0) 100%);pointer-events:none"></div>
+
+  <sc-if value="{{ showMarker }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;top:76px;right:100px;display:flex;align-items:center;gap:26px">
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.08em;color:rgba(255,255,255,0.5);font-variant-numeric:tabular-nums">{{ counter }}</span>
+        <span style="font-size:26px;font-weight:600;color:#fff;white-space:nowrap">{{ sectionName }}</span>
+      </div>
+      {{ stackIcon }}
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ is.title }}" hint-placeholder-val="{{ true }}">
+    <div class="cs-in" style="position:absolute;left:100px;top:100px;display:flex;align-items:center;gap:28px">
+      <span style="font-size:44px;font-weight:800;letter-spacing:0.08em;line-height:1">CUMMINS</span>
+      <span style="width:1px;height:56px;background:rgba(255,255,255,0.4)"></span>
+      <span style="font-size:44px;font-weight:700;letter-spacing:0.3em;line-height:1">STARLINK</span>
+      <span style="width:1px;height:56px;background:rgba(255,255,255,0.4)"></span>
+      <img src="shared/logos/spacex-white.png" alt="SpaceX" style="height:26px;width:auto;display:block">
+    </div>
+    <p class="cs-in" style="position:absolute;left:100px;top:672px;margin:0;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);animation-delay:.15s">A map of the Cummins world</p>
+    <h1 class="cs-in" style="position:absolute;left:100px;top:714px;margin:0;width:1100px;font-size:92px;font-weight:700;letter-spacing:-0.045em;line-height:1.02;animation-delay:.25s">Every Cummins site,<br>online from orbit.</h1>
+    <p class="cs-in" style="position:absolute;left:100px;top:926px;margin:0;width:1200px;font-size:32px;line-height:1.35;color:rgba(255,255,255,0.7);animation-delay:.4s">Five Cummins priorities, and how Starlink helps with each.</p>
+  </sc-if>
+
+  <sc-if value="{{ is.fit }}" hint-placeholder-val="{{ false }}">
+    <h2 class="cs-in" style="position:absolute;left:100px;top:92px;margin:0;font-size:64px;font-weight:700;letter-spacing:-0.035em;line-height:1.06;white-space:nowrap">Where Starlink fits the Cummins plan.</h2>
+    <p class="cs-in" style="position:absolute;left:100px;top:190px;margin:0;width:1150px;font-size:30px;line-height:1.35;color:rgba(255,255,255,0.7);text-wrap:pretty;animation-delay:.1s">Five priorities from Cummins results, filings and leaders.</p>
+    <div class="cs-in" style="position:absolute;left:100px;top:296px;width:1720px;box-sizing:border-box;padding:30px 44px 14px;border-radius:24px;border:1px solid rgba(255,255,255,0.14);background:rgba(11,11,11,0.94);animation-delay:.2s">
+      <div style="height:46px;display:flex;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5)">
+        <span style="width:916px;padding-left:60px;box-sizing:border-box">Cummins priority</span>
+        <span>How Starlink helps</span>
+      </div>
+      <sc-for list="{{ fits }}" as="f" hint-placeholder-count="5">
+        <div onClick="{{ f.go }}" style="height:104px;display:flex;align-items:center;border-top:1px solid rgba(255,255,255,0.14);cursor:pointer" style-hover="background:rgba(255,255,255,0.04)">
+          <span style="width:60px;flex:none;display:flex;color:#fff">{{ f.glyph }}</span>
+          <div style="width:856px;flex:none;display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:32px;font-weight:600;letter-spacing:-0.01em;color:#fff;white-space:nowrap">{{ f.name }}</span>
+            <span style="font-size:24px;color:rgba(255,255,255,0.45);white-space:nowrap">{{ f.src }}</span>
+          </div>
+          <span style="font-size:30px;line-height:1.3;color:rgba(255,255,255,0.75);white-space:nowrap">{{ f.help }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ is.branches }}" hint-placeholder-val="{{ false }}">
+    <h2 class="cs-in" style="position:absolute;left:100px;top:92px;margin:0;font-size:64px;font-weight:700;letter-spacing:-0.035em;line-height:1.06;white-space:nowrap">Every branch needs a backup link.</h2>
+    <p class="cs-in" style="position:absolute;left:100px;top:190px;margin:0;width:1150px;font-size:30px;line-height:1.35;color:rgba(255,255,255,0.7);text-wrap:pretty;animation-delay:.1s"><span style="color:#fff">Distribution is the largest Cummins business, $12.39B in 2025.</span> Starlink gives every branch and dealer a second path off the ground lines.</p>
+    <div class="cs-in" style="position:absolute;left:100px;top:818px;display:flex;gap:40px;animation-delay:.9s">
+      <div style="width:480px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="font-size:80px;font-weight:700;letter-spacing:-0.05em;line-height:0.9">640</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">Distributor locations, about</div>
+      </div>
+      <div style="width:480px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="font-size:80px;font-weight:700;letter-spacing:-0.05em;line-height:0.9">13,000+</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">Cummins certified dealer locations</div>
+      </div>
+      <div style="width:480px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="font-size:80px;font-weight:700;letter-spacing:-0.05em;line-height:0.9">190</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">Countries and territories, about</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ is.dc }}" hint-placeholder-val="{{ false }}">
+    <h2 class="cs-in" style="position:absolute;left:100px;top:92px;margin:0;font-size:64px;font-weight:700;letter-spacing:-0.035em;line-height:1.06;white-space:nowrap">Gensets need their own link home.</h2>
+    <p class="cs-in" style="position:absolute;left:100px;top:190px;margin:0;width:1040px;font-size:30px;line-height:1.35;color:rgba(255,255,255,0.7);text-wrap:pretty;animation-delay:.1s"><span style="color:#fff">Data centers drive the Cummins growth story, and those customers want redundant power.</span> Starlink gives each PowerCommand Cloud gateway a path home beyond the site LAN and cellular.</p>
+    <div class="cs-in" style="position:absolute;left:1180px;top:300px;width:640px;height:478px;box-sizing:border-box;padding:34px 36px;border-radius:24px;border:1px solid rgba(255,255,255,0.14);background:rgba(11,11,11,0.94);display:flex;flex-direction:column;animation-delay:.5s">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5)">Paths home</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.35);border-radius:6px;padding:0 8px">Illustrative</span>
+      </div>
+      <div style="margin-top:22px;display:flex;flex-direction:column">
+        <sc-for list="{{ dcRows }}" as="r" hint-placeholder-count="3">
+          <div style="position:relative;height:86px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.14)">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:12px">
+                <span style="font-size:30px;font-weight:700;color:{{ r.nameColor }};transition:color .4s">{{ r.name }}</span>
+                <sc-if value="{{ r.tag }}" hint-placeholder-val="{{ false }}"><span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#000;background:#fff;border-radius:6px;padding:0 8px">Added</span></sc-if>
+              </div>
+              <div style="width:200px;height:4px;border-radius:2px;background:rgba(255,255,255,0.08);overflow:hidden"><div class="{{ r.flowClass }}" style="width:100%;height:100%;opacity:{{ r.flowOp }};transition:opacity .4s"></div></div>
+            </div>
+            <span style="width:300px;box-sizing:border-box;display:flex;align-items:center;gap:12px;padding:8px 16px;border-radius:999px;border:1px solid {{ r.pillBorder }};background:{{ r.pillBg }};font-size:24px;font-weight:600;color:{{ r.pillColor }};white-space:nowrap;transition:all .4s">
+              <span style="width:12px;height:12px;flex:none;border-radius:99px;background:{{ r.dot }};box-shadow:0 0 10px {{ r.dot }};transition:all .4s"></span>{{ r.status }}
+            </span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:auto 0 0;font-size:26px;line-height:1.35;color:rgba(255,255,255,0.7);text-wrap:pretty">Status, alarms and control keep reaching PowerCommand Cloud.</p>
+    </div>
+    <div class="cs-in" style="position:absolute;left:100px;top:818px;display:flex;gap:40px;animation-delay:.9s">
+      <div style="width:480px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="font-size:80px;font-weight:700;letter-spacing:-0.05em;line-height:0.9">19%</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">Power Systems sales growth in Q2 2026, driven by data center demand</div>
+      </div>
+      <div style="width:700px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="height:72px;display:flex;align-items:center;font-size:44px;font-weight:700;letter-spacing:-0.03em;line-height:1">“without reliance on the grid”</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">Cummins on the Circe Energy AI campus in West Texas, deliveries 2026 through 2030</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ is.remote }}" hint-placeholder-val="{{ false }}">
+    <h2 class="cs-in" style="position:absolute;left:100px;top:92px;margin:0;font-size:64px;font-weight:700;letter-spacing:-0.035em;line-height:1.06;white-space:nowrap">Mines and ships sit past the towers.</h2>
+    <p class="cs-in" style="position:absolute;left:100px;top:190px;margin:0;width:1150px;font-size:30px;line-height:1.35;color:rgba(255,255,255,0.7);text-wrap:pretty;animation-delay:.1s"><span style="color:#fff">Cummins is adding mining capacity, a century into serving the industry.</span> Starlink carries PrevenTech data from the pit, the pad and the deck.</p>
+    <div class="cs-in" style="position:absolute;left:100px;top:818px;display:flex;gap:40px;animation-delay:.9s">
+      <div style="width:480px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="font-size:80px;font-weight:700;letter-spacing:-0.05em;line-height:0.9">100</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">Years of Cummins serving the mining industry</div>
+      </div>
+      <div style="width:480px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="font-size:80px;font-weight:700;letter-spacing:-0.05em;line-height:0.9">24/7</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">PrevenTech monitoring for mining and marine, over cellular or WiFi today</div>
+      </div>
+      <div style="width:480px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px;display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ legend }}" as="g" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;gap:16px;height:30px;font-size:24px;color:rgba(255,255,255,0.75)"><span style="display:flex;width:28px;justify-content:center">{{ g.glyph }}</span>{{ g.name }}</div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ is.crew }}" hint-placeholder-val="{{ false }}">
+    <h2 class="cs-in" style="position:absolute;left:100px;top:92px;margin:0;font-size:64px;font-weight:700;letter-spacing:-0.035em;line-height:1.06;white-space:nowrap">Field crews stay online on the job.</h2>
+    <p class="cs-in" style="position:absolute;left:100px;top:190px;margin:0;width:1100px;font-size:30px;line-height:1.35;color:rgba(255,255,255,0.7);text-wrap:pretty;animation-delay:.1s"><span style="color:#fff">Cummins Distribution runs sales and service in 190+ countries.</span> A Starlink kit in the truck keeps diagnostics and parts lookup online at the job.</p>
+    <div class="cs-in" style="position:absolute;left:1260px;top:300px;width:560px;height:478px;box-sizing:border-box;padding:34px 36px;border-radius:24px;border:1px solid rgba(255,255,255,0.14);background:rgba(11,11,11,0.94);display:flex;flex-direction:column;animation-delay:.5s">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5)">Service truck</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.35);border-radius:6px;padding:0 8px">Illustrative</span>
+      </div>
+      <div style="margin-top:20px;display:flex;align-items:baseline;gap:18px">
+        <span style="width:220px;font-size:80px;font-weight:700;letter-spacing:-0.05em;line-height:1;font-variant-numeric:tabular-nums">{{ crewPct }}</span>
+        <span style="font-size:24px;color:rgba(255,255,255,0.55)">of the drive to the site</span>
+      </div>
+      <div style="margin-top:auto;display:flex;flex-direction:column">
+        <sc-for list="{{ crewRows }}" as="r" hint-placeholder-count="4">
+          <div style="height:58px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.14)">
+            <span style="font-size:26px;color:rgba(255,255,255,0.7)">{{ r.name }}</span>
+            <span style="width:200px;display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:26px;font-weight:600;color:#fff;white-space:nowrap"><span style="width:12px;height:12px;border-radius:99px;background:{{ r.dot }};box-shadow:0 0 10px {{ r.dot }}"></span>{{ r.value }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div class="cs-in" style="position:absolute;left:100px;top:818px;display:flex;gap:40px;animation-delay:.9s">
+      <div style="width:480px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="font-size:80px;font-weight:700;letter-spacing:-0.05em;line-height:0.9">15,000+</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">People in Cummins Distribution, sales and service</div>
+      </div>
+      <div style="width:480px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="font-size:80px;font-weight:700;letter-spacing:-0.05em;line-height:0.9">190+</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">Countries the Distribution business covers</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ is.plants }}" hint-placeholder-val="{{ false }}">
+    <h2 class="cs-in" style="position:absolute;left:100px;top:92px;margin:0;font-size:64px;font-weight:700;letter-spacing:-0.035em;line-height:1.06;white-space:nowrap">Every plant gets a second path.</h2>
+    <p class="cs-in" style="position:absolute;left:100px;top:190px;margin:0;width:1150px;font-size:30px;line-height:1.35;color:rgba(255,255,255,0.7);text-wrap:pretty;animation-delay:.1s"><span style="color:#fff">Cummins Operations is scaling AI beyond pilot programs.</span> A Starlink path beside the current carrier keeps a cut fiber from stopping a line.</p>
+    <div class="cs-in" style="position:absolute;left:100px;top:818px;display:flex;gap:40px;animation-delay:.9s">
+      <div style="width:480px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="font-size:80px;font-weight:700;letter-spacing:-0.05em;line-height:0.9">36</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">Principal plant cities in the 10K, by our count</div>
+      </div>
+      <div style="width:700px;border-top:1px solid rgba(255,255,255,0.35);padding-top:16px">
+        <div style="height:72px;display:flex;align-items:center;font-size:44px;font-weight:700;letter-spacing:-0.03em;line-height:1">IT disruption</div>
+        <div style="margin-top:12px;font-size:24px;line-height:1.3;color:rgba(255,255,255,0.55)">Listed among the risk factors in the Cummins 10K</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ is.proof }}" hint-placeholder-val="{{ false }}">
+    <h2 class="cs-in" style="position:absolute;left:100px;top:92px;margin:0;font-size:64px;font-weight:700;letter-spacing:-0.035em;line-height:1.06;white-space:nowrap">Proof from the same kinds of sites.</h2>
+    <p class="cs-in" style="position:absolute;left:100px;top:190px;margin:0;width:1150px;font-size:30px;line-height:1.35;color:rgba(255,255,255,0.7);text-wrap:pretty;animation-delay:.1s">Public case studies from the same kinds of sites behind each Cummins priority.</p>
+    <div style="position:absolute;left:100px;top:310px;width:1720px;height:500px;display:flex;gap:24px">
+      <sc-for list="{{ proof }}" as="c" hint-placeholder-count="4">
+        <div class="cs-in" style="flex:1;min-width:0;box-sizing:border-box;padding:40px 36px;border-radius:24px;border:1px solid rgba(255,255,255,0.14);background:rgba(11,11,11,0.94);display:flex;flex-direction:column;animation-delay:{{ c.delay }}">
+          
+          <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5)">{{ c.kind }}</span>
+          <span style="margin-top:14px;font-size:44px;font-weight:700;letter-spacing:-0.03em;line-height:1.1">{{ c.name }}</span>
+          <span style="margin-top:20px;font-size:28px;line-height:1.35;color:rgba(255,255,255,0.75);text-wrap:pretty">{{ c.line }}</span>
+          <div style="margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,0.14);display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:24px;line-height:1.3;color:#fff">{{ c.tie }}</span>
+            <span style="font-size:24px;line-height:1.3;color:rgba(255,255,255,0.4)">{{ c.source }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ is.close }}" hint-placeholder-val="{{ false }}">
+    <h2 class="cs-in" style="position:absolute;left:100px;top:92px;margin:0;font-size:64px;font-weight:700;letter-spacing:-0.035em;line-height:1.06;white-space:nowrap">Power without the grid.<br>Internet without the fiber.</h2>
+    <p class="cs-in" style="position:absolute;left:100px;top:262px;margin:0;width:1150px;font-size:30px;line-height:1.35;color:rgba(255,255,255,0.7);text-wrap:pretty;animation-delay:.1s"><span style="color:#fff">Cummins powers sites without the grid, like the Circe AI campus.</span> Starlink connects them without fiber, as one more path beside any carrier.</p>
+    <div class="cs-in" style="position:absolute;left:100px;top:762px;width:750px;box-sizing:border-box;padding:32px 48px;border-radius:6px;background:#fff;color:#000;animation-delay:.6s">
+      <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;line-height:1.1">Pick one layer to pilot first.</div>
+      <div style="margin-top:12px;font-size:26px;line-height:1.35;color:rgba(0,0,0,0.7)">Choose the sites and an owner. We scope the kit.</div>
+    </div>
+    <div class="cs-in" style="position:absolute;left:880px;top:772px;width:940px;display:flex;flex-wrap:wrap;gap:14px;animation-delay:.8s">
+      <sc-for list="{{ chips }}" as="k" hint-placeholder-count="6">
+        <button onClick="{{ k.pick }}" style="height:56px;padding:0 22px;display:flex;align-items:center;gap:12px;border-radius:999px;border:1px solid {{ k.border }};background:{{ k.bg }};color:{{ k.color }};font-size:24px;font-weight:600;cursor:pointer;white-space:nowrap" style-hover="border-color:#fff">
+          <span style="display:flex">{{ k.glyph }}</span>{{ k.name }}
+        </button>
+      </sc-for>
+    </div>
+    <div class="cs-in" style="position:absolute;left:100px;bottom:64px;display:flex;align-items:baseline;gap:24px;animation-delay:1s">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.12em;color:#fff">NEXT STEP</span>
+      <span style="font-size:30px;font-weight:500">Pick a layer and a short site list.</span>
+    </div>
+  </sc-if>
+
+  <div style="position:absolute;left:100px;bottom:44px;width:1500px;font-size:24px;line-height:30px;color:rgba(255,255,255,0.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ footnote }}</div>
+
+  <sc-if value="{{ showNav }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;right:100px;bottom:36px;display:flex;gap:12px">
+      <button onClick="{{ back }}" aria-label="Previous view" style="width:52px;height:46px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.8);font-size:24px;cursor:pointer" style-hover="background:#161616;color:#fff">←</button>
+      <button onClick="{{ next }}" aria-label="Next view" style="width:52px;height:46px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.8);font-size:24px;cursor:pointer" style-hover="background:#161616;color:#fff">→</button>
+    </div>
+  </sc-if>
+  <sc-if value="{{ showHint }}" hint-placeholder-val="{{ false }}">
+    <div class="cs-blink" style="position:absolute;right:240px;bottom:44px;font-family:'JetBrains Mono',monospace;font-size:24px;line-height:30px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5)">Press → to begin</div>
+  </sc-if>
+</div>
+</div>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  W = 1920;
+  H = 1080;
+  D = 1700;
+  SAT_Z = 120;
+  STILL = /[?&]still\b/.test(location.search);
+  MOTION = !this.STILL && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  BR = Math.min(1.5, window.devicePixelRatio || 1);
+  canvasRef = React.createRef();
+
+  VIEWS = [
+    { id: 'title', section: 'Intro', cam: { lon: -12, lat: 22, s: 4.15, tilt: 52, vx: 980, vy: 410 }, layers: {}, orbits: 1,
+      foot: 'Map is ILLUSTRATIVE. Every number on the following views carries its source.' },
+    { id: 'fit', section: 'Priorities', cam: { lon: 8, lat: 18, s: 4.3, tilt: 62, vx: 960, vy: 560 }, layers: { dealers: 0.2, dc: 0.2, remote: 0.2, plants: 0.2 }, dim: 0.3, orbits: 0.5,
+      foot: 'Sources: Cummins 10K FY2025; Q2 2026 results; Analyst Day, May 2026; leadership page; LNS Research, Oct 2026.' },
+    { id: 'branches', section: 'Branches', cam: { lon: -6, lat: 16, s: 4.9, tilt: 40, vx: 960, vy: 545 }, layers: { dealers: 1 },
+      foot: 'Source: Cummins 10K FY2025, segments and network. ILLUSTRATIVE: dots show spread, not actual dealer sites.' },
+    { id: 'dc', section: 'Data centers', cam: { lon: -101.2, lat: 33.4, s: 26, tilt: 50, vx: 620, vy: 600 }, layers: { dealers: 0.25, dc: 1 },
+      foot: 'Sources: Q2 2026 results; Citi conference, 2026; Circe release, June 16, 2026; Cloud Link guide. Diagram ILLUSTRATIVE.' },
+    { id: 'remote', section: 'Remote sites', cam: { lon: -2, lat: 10, s: 5, tilt: 44, vx: 960, vy: 545 }, layers: { dealers: 0.2, dc: 0.35, remote: 1 },
+      foot: 'Sources: Analyst Day, May 2026; Jennifer Rumsey, LinkedIn, Sept 2026; PrevenTech release, 2025. Markers ILLUSTRATIVE.' },
+    { id: 'crew', section: 'Field crews', cam: { lon: -98.4, lat: 32.3, s: 110, tilt: 54, vx: 640, vy: 610 }, layers: { dealers: 0.4, route: 1 },
+      foot: 'Source: Cummins leadership page, Distribution. Branch, route, truck and status are ILLUSTRATIVE.' },
+    { id: 'plants', section: 'Plants', cam: { lon: -42, lat: 27, s: 7, tilt: 42, vx: 980, vy: 482 }, layers: { dealers: 0.15, dc: 0.3, remote: 0.3, plants: 1 },
+      foot: 'Sources: Cummins 10K FY2025, Item 2 and risk factors; LNS Research, Oct 2026. Links ILLUSTRATIVE.' },
+    { id: 'proof', section: 'Proof', cam: { lon: 8, lat: 18, s: 4.3, tilt: 62, vx: 960, vy: 560 }, layers: { dealers: 0.15, dc: 0.2, remote: 0.2, plants: 0.2 }, dim: 0.3,
+      foot: 'Sources: public case studies from Starlink, TGS, Remington Communications and Network Innovations.' },
+    { id: 'close', section: 'Next step', cam: { lon: -8, lat: 16, s: 4.5, tilt: 46, vx: 1000, vy: 535 }, layers: { dealers: 1, dc: 1, remote: 1, fleet: 1, plants: 1 }, orbits: 0.6,
+      foot: '' },
+  ];
+  LAYERS = ['dealers', 'dc', 'remote', 'route', 'fleet', 'plants'];
+
+  // 10K FY2025 Item 2 principal plant cities. noLink: no Starlink service claim is made there.
+  PLANTS = [
+    ['Columbus, Indiana', 39.20, -85.92], ['Lakewood, NY', 42.10, -79.33], ['Whitakers, NC', 36.10, -77.71], ['Fletcher, NC', 35.43, -82.50],
+    ['Laurinburg, NC', 34.77, -79.46], ['Charleston, SC', 32.78, -79.93], ['York, SC', 34.99, -81.24], ['Mineral Point, WI', 42.86, -90.18],
+    ['Elkhart, IN', 41.68, -85.98], ['Seymour, IN', 38.96, -85.89], ['Fridley, MN', 45.09, -93.26], ['Clovis, NM', 34.40, -103.21],
+    ['Kenosha, WI', 42.58, -87.82], ['Forest City, NC', 35.33, -81.87], ['San Luis Potosí', 22.15, -100.98], ['Ciudad Juárez', 31.69, -106.42],
+    ['Monterrey', 25.69, -100.32], ['Guadalajara', 20.67, -103.35], ['São Paulo', -23.55, -46.63], ['Darlington, UK', 54.52, -1.55],
+    ['Huddersfield', 53.65, -1.78], ['Daventry', 52.26, -1.16], ['Roermond', 51.19, 5.99], ['Lindesberg', 59.59, 15.23],
+    ['Cameri', 45.50, 8.66], ['Craiova', 44.32, 23.80], ['Oevel', 51.14, 4.90], ['Herten', 51.60, 7.14], ['Mississauga', 43.59, -79.64],
+    ['Wuxi', 31.49, 120.31, 1], ['Wuhan', 30.59, 114.31, 1], ['Tianjin', 39.34, 117.36, 1],
+    ['Phaltan', 17.99, 74.43, 1], ['Ahmednagar', 19.09, 74.74, 1], ['Pune', 18.52, 73.86, 1], ['Ranjangaon', 18.76, 74.25, 1],
+  ];
+  PLANT_LABELS = { 'Columbus, Indiana': [-120, 10, 'right', true], 'São Paulo': [18, 8, 'left'], 'Darlington, UK': [-14, -16, 'right'], 'San Luis Potosí': [0, 52, 'center'] };
+
+  // ILLUSTRATIVE remote sites: representative mining, oil and gas, and marine locations.
+  REMOTE = [
+    ['mine', -22.3, 118.5], ['mine', -30.7, 121.5], ['mine', -24.3, -69.1], ['mine', -15.8, -72.0], ['mine', 40.5, -116.5], ['mine', 43.7, -105.4],
+    ['mine', 46.5, -81.0], ['mine', -6.1, -50.2], ['mine', 67.85, 20.2], ['mine', -4.1, 137.1], ['mine', -12.5, 27.8],
+    ['oil', 32.6, -103.9], ['oil', 47.8, -103.3], ['oil', 56.7, -111.4], ['oil', 57.5, 1.5], ['oil', 27.5, -90.5], ['oil', -25.0, -43.0], ['oil', -19.5, 116.0],
+    ['ship', 45, -40], ['ship', 25, -86], ['ship', 63, 3], ['ship', 15, -72], ['ship', -32, -30], ['ship', 17, -110], ['ship', -18, 156], ['ship', 36, 17], ['ship', 4, -25],
+  ];
+  CIRCE = { lat: 31.85, lon: -102.37 };
+  ROUTE = { a: [33.0, -96.5], c: [33.6, -98.4], b: [31.9, -100.2] };
+  // ILLUSTRATIVE dealer spread: [west, east, south, north, count] boxes in markets we are comfortable drawing.
+  DEALER_BOXES = [
+    [-124, -68, 26, 49, 125], [-128, -62, 43, 55, 14], [-116, -87, 15, 31, 26], [-60, -36, -32, -4, 24], [-75, -58, -44, -18, 12],
+    [-81, -72, -15, 8, 9], [-10, 24, 36, 61, 62], [24, 30, 44, 51, 5], [3, 14, 4, 13, 7], [34, 42, -5, 5, 6], [30, 40, -26, -12, 4],
+    [113, 153, -38, -12, 30], [166, 178, -46, -35, 4], [130, 145, 31, 43, 10], [118, 126, 6, 18, 6], [95, 141, -9, 5, 10], [100, 119, 1, 7, 4],
+  ];
+
+  state = Object.assign({ view: this.initialView(), isolate: null, dcPhase: this.STILL ? 1 : 0, crewP: this.STILL ? 0.62 : 0 }, this.fit());
+
+  initialView() {
+    const m = /^#(\d)$/.exec(location.hash);
+    return m ? Math.max(0, Math.min(this.VIEWS.length - 1, +m[1] - 1)) : 0;
+  }
+
+  fit() {
+    const vw = window.innerWidth || this.W, vh = window.innerHeight || this.H;
+    const scale = Math.min(vw / this.W, vh / this.H);
+    return { scale, ox: (vw - this.W * scale) / 2, oy: (vh - this.H * scale) / 2 };
+  }
+
+  rng(seed) {
+    let a = seed >>> 0;
+    return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  }
+
+  decode(g) {
+    const lon = [], lat = [];
+    g.rows.split('|').forEach((row, r) => {
+      if (!row) return;
+      const la = g.top - r * g.step, off = r % 2 ? g.step / 2 : 0;
+      row.split(',').forEach((run) => {
+        const [a, b] = run.split('.').map((x) => parseInt(x, 36));
+        for (let c = a; c < a + b; c++) { lon.push(g.west + off + c * g.step); lat.push(la); }
+      });
+    });
+    return { lon: Float32Array.from(lon), lat: Float32Array.from(lat), step: g.step, n: lon.length };
+  }
+
+  buildData() {
+    const W = window.CS_WORLD;
+    this.world = this.decode(W.world);
+    this.fine = this.decode(W.fine);
+    this.fineBox = [W.fine.west, W.fine.west + 40, 22, W.fine.top];
+    const rand = this.rng(1919);
+    const w = this.world;
+    const dealers = [];
+    this.DEALER_BOXES.forEach(([w0, w1, s0, n0, count]) => {
+      const idx = [];
+      for (let i = 0; i < w.n; i++) if (w.lon[i] >= w0 && w.lon[i] <= w1 && w.lat[i] >= s0 && w.lat[i] <= n0) idx.push(i);
+      for (let k = 0; k < count && idx.length; k++) {
+        const i = idx.splice(Math.floor(rand() * idx.length), 1)[0];
+        dealers.push({ lon: w.lon[i] + (rand() - 0.5) * 0.5, lat: w.lat[i] + (rand() - 0.5) * 0.5, beam: rand() < 0.34, h: rand() });
+      }
+    });
+    const sweep = (list, ms) => {
+      const lons = list.map((p) => p.lon).sort((a, b) => a - b);
+      const lo = lons[0], hi = lons[lons.length - 1] || lo + 1;
+      list.forEach((p) => { p.delay = ((p.lon - lo) / Math.max(1, hi - lo)) * ms + (p.h || 0) * 220; });
+      return list;
+    };
+    this.sites = {
+      dealers: sweep(dealers, 2600),
+      dc: [{ lon: this.CIRCE.lon, lat: this.CIRCE.lat, kind: 'dc', beam: true, h: 0.3, delay: 300 }],
+      remote: sweep(this.REMOTE.map(([kind, lat, lon], i) => ({ kind, lat, lon, lon0: lon, beam: true, h: (i * 0.37) % 1 })), 2200),
+      plants: sweep(this.PLANTS.map(([name, lat, lon, noLink], i) => ({ name, lat, lon, noLink: !!noLink, beam: !noLink, h: (i * 0.53) % 1 })), 2200),
+      fleet: dealers.filter((d, i) => i % 13 === 5).map((d) => ({ lon: d.lon + 0.9, lat: d.lat - 0.6, kind: 'truck', beam: true, h: d.h, delay: 0 })),
+      route: [],
+    };
+    this.sats = Array.from({ length: 84 }, (_, i) => ({ raan: ((i * 137.508) % 360) - 180, u0: (i * 2.399) % (Math.PI * 2), inc: (i % 7 === 0 ? 70 : 53) * Math.PI / 180 }));
+    const sr = this.rng(77);
+    this.stars = Array.from({ length: 260 }, () => ({ x: sr() * this.W, y: sr() * 560, r: sr() * 1.1 + 0.3, a: sr() * 0.5 + 0.15, p: sr() * 6.28 }));
+  }
+
+  satPos(sat, t) {
+    const u = sat.u0 + t * 0.03;
+    const lat = Math.asin(Math.sin(sat.inc) * Math.sin(u)) * 180 / Math.PI;
+    let lon = sat.raan + Math.atan2(Math.cos(sat.inc) * Math.sin(u), Math.cos(u)) * 180 / Math.PI - t * 0.25;
+    lon = ((lon + 540) % 360) - 180;
+    return { lon, lat };
+  }
+
+  // Camera: equirectangular plane, tilted away from the viewer, perspective projection.
+  setCam(c) {
+    const t = c.tilt * Math.PI / 180;
+    this.pc = { lon: c.lon, lat: c.lat, s: c.s, vx: c.vx, vy: c.vy, ct: Math.cos(t), st: Math.sin(t) };
+  }
+  proj(lon, lat, z) {
+    const c = this.pc;
+    const px = (lon - c.lon) * c.s, py = (c.lat - lat) * c.s;
+    const depth = this.D - py * c.st - (z || 0) * c.ct;
+    if (depth < 120) return null;
+    const f = this.D / depth;
+    return { x: c.vx + px * f, y: c.vy + (py * c.ct - (z || 0) * c.st) * f, f };
+  }
+
+  lerpCam(a, b, k) {
+    const o = {};
+    for (const key in b) o[key] = a[key] + (b[key] - a[key]) * k;
+    o.s = Math.exp(Math.log(a.s) + (Math.log(b.s) - Math.log(a.s)) * k);
+    return o;
+  }
+
+  layerTargets(view, isolate) {
+    const v = this.VIEWS[view], out = {};
+    this.LAYERS.forEach((l) => { out[l] = v.layers[l] || 0; });
+    if (isolate && v.id === 'close') this.LAYERS.forEach((l) => { if (out[l]) out[l] = l === isolate ? 1 : 0.1; });
+    return out;
+  }
+
+  componentDidMount() {
+    this.buildData();
+    const v = this.state.view;
+    this.cam = Object.assign({}, this.VIEWS[v].cam);
+    this.camFrom = this.cam; this.camTo = this.cam; this.camT0 = 0; this.camDur = 1;
+    this.alpha = this.layerTargets(v, null);
+    this.dim = this.VIEWS[v].dim || 1;
+    this.orb = this.VIEWS[v].orbits || 0.35;
+    this.lit = {};
+    this.viewT0 = performance.now();
+    this.markLit(-1, v);
+
+    this._onResize = () => { this.setState(this.fit()); this.drawOnce(); };
+    window.addEventListener('resize', this._onResize);
+    this._onKey = (e) => this.onKey(e);
+    window.addEventListener('keydown', this._onKey);
+    this.hook('mount');
+    this.enterView(v);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.drawOnce());
+    if (this.MOTION) {
+      const loop = (now) => { this.frame(now); this._raf = requestAnimationFrame(loop); };
+      this._raf = requestAnimationFrame(loop);
+    } else {
+      this.drawOnce();
+    }
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this._raf);
+    window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('keydown', this._onKey);
+    this.stopTimers();
+    this.hook('unmount');
+  }
+
+  hook(name, arg) {
+    const f = this.hooks && this.hooks[name];
+    return f ? f.call(this, arg) : undefined;
+  }
+
+  stopTimers() { (this._timers || []).forEach((id) => { clearTimeout(id); clearInterval(id); }); this._timers = []; }
+
+  onKey(e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const k = e.key, v = this.state.view;
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(k)) { e.preventDefault(); this.go(v + 1); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(k)) { e.preventDefault(); this.go(v - 1); }
+    else if (k === 'Home' || k === 'r' || k === 'R' || k === 'Escape') this.go(0);
+    else if (k === 'End') this.go(this.VIEWS.length - 1);
+    else if (/^[1-9]$/.test(k)) this.go(+k - 1);
+    else if (k === 'f' || k === 'F') { e.preventDefault(); if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(() => {}); }
+    else this.hook('key', e);
+  }
+
+  go(n) {
+    const view = Math.max(0, Math.min(this.VIEWS.length - 1, n));
+    if (view === this.state.view) return;
+    const prev = this.state.view;
+    this.camFrom = Object.assign({}, this.cam);
+    this.camTo = Object.assign({}, this.VIEWS[view].cam);
+    this.camT0 = performance.now();
+    const zoomJump = Math.abs(Math.log(this.camTo.s / this.camFrom.s));
+    this.camDur = this.MOTION ? 1500 + zoomJump * 380 : 1;
+    this.markLit(prev, view);
+    this.viewT0 = performance.now();
+    this.setState({ view, isolate: null });
+    try { history.replaceState(null, '', location.search + '#' + (view + 1)); } catch (e) {}
+    this.enterView(view);
+    this.hook('view');
+    if (!this.MOTION) this.drawOnce();
+  }
+
+  markLit(prev, view) {
+    const before = prev >= 0 ? this.layerTargets(prev, null) : {};
+    const after = this.layerTargets(view, null);
+    const now = performance.now() + (this.MOTION ? this.camDur * 0.55 : 0);
+    this.LAYERS.forEach((l) => {
+      if (after[l] >= 0.99 && !(before[l] >= 0.99) && this.MOTION) this.lit[l] = now;
+    });
+  }
+
+  enterView(view) {
+    this.stopTimers();
+    const id = this.VIEWS[view].id;
+    if (id === 'dc') {
+      if (!this.MOTION) this.setState({ dcPhase: 1 });
+      else { this.setState({ dcPhase: 0 }); this._timers.push(setTimeout(() => this.setState({ dcPhase: 1 }), 3600)); }
+    }
+    if (id === 'crew') {
+      if (!this.MOTION) { this.crewStart = null; this.setState({ crewP: 0.62 }); }
+      else {
+        this.crewStart = performance.now() + this.camDur + 600;
+        this.setState({ crewP: 0 });
+        this._timers.push(setInterval(() => this.setState({ crewP: this.crewProgress(performance.now()) }), 250));
+      }
+    }
+  }
+
+  crewProgress(now) {
+    if (this.crewStart == null) return 0.62;
+    const k = Math.max(0, Math.min(1, (now - this.crewStart) / 9000));
+    return k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+  }
+
+  drawOnce() { if (!this.MOTION) this.frame(performance.now(), true); }
+
+  frame(now, settle) {
+    const cv = this.canvasRef.current;
+    if (!cv || !this.world) return;
+    const dt = Math.min(0.1, (now - (this._last || now)) / 1000);
+    this._last = now;
+    const view = this.state.view, V = this.VIEWS[view];
+    const k = settle ? 1 : Math.max(0, Math.min(1, (now - this.camT0) / this.camDur));
+    const e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+    this.cam = settle ? Object.assign({}, V.cam) : this.lerpCam(this.camFrom, this.camTo, e);
+    this.setCam(this.cam);
+    const targets = this.layerTargets(view, this.state.isolate);
+    const ease = settle ? 1 : 1 - Math.exp(-dt * 3.2);
+    this.LAYERS.forEach((l) => { this.alpha[l] += (targets[l] - this.alpha[l]) * ease; });
+    this.dim += ((V.dim || 1) - this.dim) * ease;
+    this.orb += ((V.orbits || 0.35) - this.orb) * ease;
+    const t = this.MOTION ? now / 1000 : 37;
+    this.draw(cv, now, t, k >= 1, settle);
+  }
+
+  draw(cv, now, t, settled, still) {
+    const ctx = cv.getContext('2d');
+    const BR = this.BR;
+    ctx.setTransform(BR, 0, 0, BR, 0, 0);
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, this.W, this.H);
+
+    for (const s of this.stars) {
+      ctx.globalAlpha = s.a * (this.MOTION ? 0.75 + 0.25 * Math.sin(t * 0.8 + s.p) : 0.85);
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(s.x, s.y, s.r, s.r);
+    }
+    ctx.globalAlpha = 1;
+    this.drawLand(ctx);
+    this.drawOrbits(ctx, t);
+
+    const sats = this.sats.map((s) => this.satPos(s, t));
+    const satScreen = sats.map((p) => this.proj(p.lon, p.lat, this.SAT_Z));
+    const glow = this.glowSprite();
+    ctx.globalCompositeOperation = 'lighter';
+
+    const layerOrder = ['dealers', 'remote', 'plants', 'fleet', 'dc'];
+    for (const l of layerOrder) {
+      const a = this.alpha[l];
+      if (a < 0.01) continue;
+      const beams = a > 0.55;
+      for (const site of this.sites[l]) {
+        if (l === 'remote' && site.kind === 'ship') site.lon = site.lon0 + 3 * Math.sin(t / 30 + site.h * 6);
+        const p = this.proj(site.lon, site.lat, 0);
+        if (!p || p.x < -40 || p.x > this.W + 40 || p.y < -40 || p.y > this.H + 40) continue;
+        const litK = this.litK(l, site, now);
+        const zf = Math.max(0.75, Math.min(1.35, p.f));
+        if (beams && site.beam && litK > 0.6) this.drawBeam(ctx, site, p, sats, satScreen, a, t);
+        this.drawSite(ctx, l, site, p, zf, a, litK, glow, now);
+      }
+    }
+    if (this.alpha.route > 0.01) this.drawRoute(ctx, now, t, sats, satScreen, glow);
+    this.drawSats(ctx, sats, satScreen, t, glow);
+    ctx.globalCompositeOperation = 'source-over';
+    if (settled || still) this.drawLabels(ctx, now);
+  }
+
+  litK(l, site, now) {
+    const t0 = this.lit[l];
+    if (t0 == null) return 1;
+    return Math.max(0, Math.min(1, (now - t0 - (site.delay || 0)) / 500));
+  }
+
+  glowSprite() {
+    if (this._glow) return this._glow;
+    const c = document.createElement('canvas');
+    c.width = c.height = 64;
+    const g = c.getContext('2d');
+    const grd = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+    grd.addColorStop(0, 'rgba(255,255,255,0.9)');
+    grd.addColorStop(0.25, 'rgba(255,255,255,0.35)');
+    grd.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = grd;
+    g.fillRect(0, 0, 64, 64);
+    this._glow = c;
+    return c;
+  }
+
+  drawLand(ctx) {
+    const c = this.pc;
+    const fineK = Math.max(0, Math.min(1, (c.s - 40) / 40));
+    const [fw, fe, fs, fn] = this.fineBox;
+    const grid = (g, alphaIn, alphaOut, insideOnly) => {
+      const n = g.n, base = Math.max(0.9, Math.min(3, g.step * 0.32 * c.s));
+      const buckets = [[], [], [], [], []];
+      for (let i = 0; i < n; i++) {
+        const lon = g.lon[i], lat = g.lat[i];
+        const inside = lon >= fw && lon <= fe && lat >= fs && lat <= fn;
+        if (insideOnly && !inside) continue;
+        const a = inside ? alphaIn : alphaOut;
+        if (a <= 0.01) continue;
+        const px = (lon - c.lon) * c.s, py = (c.lat - lat) * c.s;
+        const depth = this.D - py * c.st;
+        if (depth < 200) continue;
+        const f = this.D / depth;
+        const x = c.vx + px * f;
+        if (x < -6 || x > this.W + 6) continue;
+        const y = c.vy + py * c.ct * f;
+        if (y < -6 || y > this.H + 6) continue;
+        const fog = Math.max(0, Math.min(1, (f - 0.5) / 0.45));
+        if (fog <= 0.02) continue;
+        const b = Math.min(4, Math.floor(fog * a * 5));
+        buckets[b].push(x, y, base * f);
+      }
+      buckets.forEach((list, b) => {
+        if (!list.length) return;
+        ctx.globalAlpha = 0.07 + b * 0.055;
+        ctx.fillStyle = '#fff';
+        ctx.beginPath();
+        for (let j = 0; j < list.length; j += 3) {
+          const r = list[j + 2];
+          if (r < 1.6) ctx.rect(list[j] - r, list[j + 1] - r, r * 2, r * 2);
+          else { ctx.moveTo(list[j] + r, list[j + 1]); ctx.arc(list[j], list[j + 1], r, 0, 6.2832); }
+        }
+        ctx.fill();
+      });
+    };
+    const d = this.dim;
+    grid(this.world, d * (1 - fineK), d, false);
+    if (fineK > 0) grid(this.fine, d * fineK, 0, true);
+    ctx.globalAlpha = 1;
+  }
+
+  drawOrbits(ctx, t) {
+    if (this.orb < 0.02) return;
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1;
+    for (let i = 0; i < 9; i++) {
+      const sat = this.sats[i * 9];
+      ctx.globalAlpha = 0.07 * this.orb * this.dim;
+      ctx.beginPath();
+      let pen = false, lastLon = null;
+      for (let j = 0; j <= 120; j++) {
+        const u = (j / 120) * Math.PI * 2;
+        const lat = Math.asin(Math.sin(sat.inc) * Math.sin(u)) * 180 / Math.PI;
+        let lon = sat.raan + Math.atan2(Math.cos(sat.inc) * Math.sin(u), Math.cos(u)) * 180 / Math.PI;
+        lon = ((lon + 540) % 360) - 180;
+        const p = this.proj(lon, lat, this.SAT_Z);
+        if (!p || (lastLon != null && Math.abs(lon - lastLon) > 90)) { pen = false; lastLon = lon; continue; }
+        if (pen) ctx.lineTo(p.x, p.y); else { ctx.moveTo(p.x, p.y); pen = true; }
+        lastLon = lon;
+      }
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  nearestSat(site, sats, range) {
+    let best = -1, bd = range * range;
+    const coslat = Math.cos(site.lat * Math.PI / 180);
+    for (let i = 0; i < sats.length; i++) {
+      let dl = Math.abs(sats[i].lon - site.lon);
+      if (dl > 180) dl = 360 - dl;
+      const dx = dl * coslat, dy = sats[i].lat - site.lat, d = dx * dx + dy * dy;
+      if (d < bd) { bd = d; best = i; }
+    }
+    return best;
+  }
+
+  drawBeam(ctx, site, p, sats, satScreen, a, t) {
+    const range = this.pc.s > 40 ? 8 : 24;
+    const i = this.nearestSat(site, sats, range);
+    if (i < 0 || !satScreen[i]) return;
+    const q = satScreen[i];
+    const g = ctx.createLinearGradient(p.x, p.y, q.x, q.y);
+    g.addColorStop(0, 'rgba(255,255,255,' + (0.5 * a) + ')');
+    g.addColorStop(1, 'rgba(255,255,255,' + (0.12 * a) + ')');
+    ctx.strokeStyle = g;
+    ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+    const k = this.MOTION ? (t * 0.7 + site.h) % 1 : 0.35 + site.h * 0.3;
+    ctx.globalAlpha = 0.9 * a;
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.arc(p.x + (q.x - p.x) * k, p.y + (q.y - p.y) * k, 1.8, 0, 6.2832); ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+
+  drawSite(ctx, l, site, p, zf, a, litK, glow, now) {
+    const lit = litK >= 1 && !site.noLink;
+    if (litK < 1 && litK > 0 && !site.noLink) {
+      const r = 6 + litK * 26;
+      ctx.globalAlpha = (1 - litK) * 0.8 * a;
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(p.x, p.y, r * zf, 0, 6.2832); ctx.stroke();
+    }
+    const on = site.noLink ? 0 : litK;
+    const coreA = (0.32 + 0.68 * on) * a;
+    if (on > 0) {
+      const gs = (l === 'dealers' ? 16 : l === 'dc' ? 70 : 34) * zf;
+      ctx.globalAlpha = 0.55 * on * a;
+      ctx.drawImage(glow, p.x - gs / 2, p.y - gs / 2, gs, gs);
+    }
+    ctx.globalAlpha = coreA;
+    ctx.fillStyle = '#fff';
+    ctx.strokeStyle = '#fff';
+    if (l === 'dealers') {
+      ctx.beginPath(); ctx.arc(p.x, p.y, 2.1 * zf, 0, 6.2832); ctx.fill();
+    } else if (l === 'plants') {
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 7 * zf, 0, 6.2832); ctx.stroke();
+      if (!site.noLink) { ctx.beginPath(); ctx.arc(p.x, p.y, 3 * zf, 0, 6.2832); ctx.fill(); }
+      else { ctx.globalAlpha = 0.45 * a; ctx.stroke(); }
+    } else if (l === 'remote') {
+      this.glyph(ctx, site.kind, p.x, p.y, 9 * zf);
+    } else if (l === 'fleet') {
+      ctx.fillRect(p.x - 4 * zf, p.y - 2.5 * zf, 8 * zf, 5 * zf);
+    } else if (l === 'dc') {
+      const big = this.pc.s > 12;
+      const s = (big ? 10 : 6) * zf;
+      ctx.fillRect(p.x - s, p.y - s, s * 2, s * 2);
+      if (big) {
+        ctx.globalAlpha = 0.85 * a;
+        for (let r = 0; r < 2; r++) for (let c = 0; c < 3; c++) {
+          const q = this.proj(site.lon + 0.32 + c * 0.16, site.lat - 0.1 - r * 0.16, 0);
+          if (q) ctx.fillRect(q.x - 4, q.y - 3, 8, 6);
+        }
+        const pulse = this.MOTION ? (now / 2400) % 1 : 0.45;
+        ctx.globalAlpha = (1 - pulse) * 0.7 * a;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.arc(p.x, p.y, (16 + pulse * 70) * zf, 0, 6.2832); ctx.stroke();
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  glyph(ctx, kind, x, y, s) {
+    ctx.beginPath();
+    if (kind === 'mine') { ctx.moveTo(x, y - s); ctx.lineTo(x + s, y + s * 0.75); ctx.lineTo(x - s, y + s * 0.75); ctx.closePath(); ctx.fill(); }
+    else if (kind === 'oil') { ctx.moveTo(x, y - s); ctx.lineTo(x + s * 0.8, y); ctx.lineTo(x, y + s); ctx.lineTo(x - s * 0.8, y); ctx.closePath(); ctx.fill(); }
+    else { ctx.moveTo(x - s, y - s * 0.2); ctx.lineTo(x + s, y - s * 0.2); ctx.lineTo(x + s * 0.6, y + s * 0.6); ctx.lineTo(x - s * 0.6, y + s * 0.6); ctx.closePath(); ctx.fill(); ctx.fillRect(x - s * 0.15, y - s, s * 0.3, s * 0.7); }
+  }
+
+  routePoint(k) {
+    const { a, b, c } = this.ROUTE, m = 1 - k;
+    return { lat: m * m * a[0] + 2 * m * k * c[0] + k * k * b[0], lon: m * m * a[1] + 2 * m * k * c[1] + k * k * b[1] };
+  }
+
+  drawRoute(ctx, now, t, sats, satScreen, glow) {
+    const a = this.alpha.route;
+    const p = this.MOTION ? this.crewProgress(now) : 0.62;
+    ctx.globalAlpha = 0.35 * a;
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 10]);
+    ctx.beginPath();
+    for (let j = 0; j <= 60; j++) {
+      const q = this.routePoint(j / 60), s = this.proj(q.lon, q.lat, 0);
+      if (s) j ? ctx.lineTo(s.x, s.y) : ctx.moveTo(s.x, s.y);
+    }
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 0.85 * a;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    for (let j = 0; j <= 60 * p; j++) {
+      const q = this.routePoint(j / 60), s = this.proj(q.lon, q.lat, 0);
+      if (s) j ? ctx.lineTo(s.x, s.y) : ctx.moveTo(s.x, s.y);
+    }
+    ctx.stroke();
+    const A = this.proj(this.ROUTE.a[1], this.ROUTE.a[0], 0), B = this.proj(this.ROUTE.b[1], this.ROUTE.b[0], 0);
+    ctx.fillStyle = '#fff';
+    if (A) { ctx.globalAlpha = a; ctx.fillRect(A.x - 9, A.y - 9, 18, 18); }
+    if (B) {
+      ctx.globalAlpha = (p >= 1 ? 1 : 0.6) * a;
+      ctx.lineWidth = 2;
+      ctx.strokeRect(B.x - 10, B.y - 10, 20, 20);
+      ctx.fillRect(B.x - 5, B.y - 5, 10, 10);
+    }
+    const q = this.routePoint(p), T = this.proj(q.lon, q.lat, 0);
+    if (!T) return;
+    const hero = { lon: q.lon + 0.9 - (this.MOTION ? ((t * 0.12) % 1.8) : 0.6), lat: q.lat + 1.1 };
+    const H = this.proj(hero.lon, hero.lat, this.SAT_Z * 1.4);
+    if (H) {
+      const g = ctx.createLinearGradient(T.x, T.y, H.x, H.y);
+      g.addColorStop(0, 'rgba(255,255,255,' + 0.8 * a + ')');
+      g.addColorStop(1, 'rgba(255,255,255,' + 0.2 * a + ')');
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = g;
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(T.x, T.y); ctx.lineTo(H.x, H.y); ctx.stroke();
+      const k = this.MOTION ? (t * 0.9) % 1 : 0.4;
+      ctx.globalAlpha = a;
+      ctx.beginPath(); ctx.arc(T.x + (H.x - T.x) * k, T.y + (H.y - T.y) * k, 3, 0, 6.2832); ctx.fill();
+      ctx.globalAlpha = 0.9 * a;
+      ctx.drawImage(glow, H.x - 18, H.y - 18, 36, 36);
+      ctx.beginPath(); ctx.arc(H.x, H.y, 3.5, 0, 6.2832); ctx.fill();
+      ctx.fillRect(H.x - 14, H.y - 1.5, 9, 3); ctx.fillRect(H.x + 5, H.y - 1.5, 9, 3);
+    }
+    ctx.globalAlpha = 0.7 * a;
+    ctx.drawImage(glow, T.x - 30, T.y - 30, 60, 60);
+    ctx.globalAlpha = a;
+    ctx.fillRect(T.x - 12, T.y - 7, 24, 14);
+    ctx.globalAlpha = 1;
+  }
+
+  drawSats(ctx, sats, satScreen, t, glow) {
+    const a = this.dim;
+    for (let i = 0; i < sats.length; i++) {
+      const q = satScreen[i];
+      if (!q || q.x < -20 || q.x > this.W + 20 || q.y < -20 || q.y > this.H + 20) continue;
+      const fog = Math.max(0.15, Math.min(1, (q.f - 0.45) / 0.5));
+      ctx.globalAlpha = 0.5 * fog * a;
+      ctx.drawImage(glow, q.x - 9, q.y - 9, 18, 18);
+      ctx.globalAlpha = 0.95 * fog * a;
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(q.x, q.y, 1.6 * Math.min(1.6, q.f), 0, 6.2832); ctx.fill();
+      ctx.globalAlpha = 0.25 * fog * a;
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (let j = 0; j <= 6; j++) {
+        const p = this.satPos(this.sats[i], t - j * 2.2), s = this.proj(p.lon, p.lat, this.SAT_Z);
+        if (!s || Math.abs(p.lon - sats[i].lon) > 40) break;
+        j ? ctx.lineTo(s.x, s.y) : ctx.moveTo(s.x, s.y);
+      }
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  drawLabels(ctx, now) {
+    const id = this.VIEWS[this.state.view].id, labels = [];
+    if (id === 'dc') labels.push({ lon: this.CIRCE.lon, lat: this.CIRCE.lat, dx: -30, dy: -96, align: 'right', text: 'Circe Energy AI campus', sub: 'WEST TEXAS · LOCATION APPROXIMATE' });
+    if (id === 'crew') {
+      labels.push({ lon: this.ROUTE.a[1], lat: this.ROUTE.a[0], dx: 22, dy: -30, align: 'left', text: 'Cummins branch', sub: 'ILLUSTRATIVE' });
+      labels.push({ lon: this.ROUTE.b[1], lat: this.ROUTE.b[0], dx: -26, dy: 54, align: 'right', text: 'Genset site', sub: 'ILLUSTRATIVE' });
+    }
+    if (id === 'plants') this.sites.plants.forEach((s) => { const L = this.PLANT_LABELS[s.name]; if (L) labels.push({ lon: s.lon, lat: s.lat, dx: L[0], dy: L[1], align: L[2], lead: L[3], text: s.name }); });
+    if (!labels.length) return;
+    const fade = this.MOTION ? Math.max(0, Math.min(1, (now - this.camT0 - this.camDur) / 500)) : 1;
+    for (const L of labels) {
+      const p = this.proj(L.lon, L.lat, 0);
+      if (!p) continue;
+      const x = p.x + L.dx, y = p.y + L.dy;
+      ctx.globalAlpha = fade;
+      if (L.lead) {
+        const ex = L.align === 'right' ? x + 12 : L.align === 'left' ? x - 12 : x, ey = y - 9;
+        const len = Math.hypot(ex - p.x, ey - p.y) || 1;
+        ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(p.x + (ex - p.x) * 12 / len, p.y + (ey - p.y) * 12 / len);
+        ctx.lineTo(ex, ey);
+        ctx.stroke();
+      }
+      ctx.textAlign = L.align;
+      ctx.textBaseline = 'alphabetic';
+      ctx.shadowColor = 'rgba(0,0,0,0.9)';
+      ctx.shadowBlur = 10;
+      ctx.fillStyle = '#fff';
+      ctx.font = '600 26px Inter, ui-sans-serif, system-ui, sans-serif';
+      ctx.fillText(L.text, x, y);
+      if (L.sub) {
+        ctx.fillStyle = 'rgba(255,255,255,0.6)';
+        ctx.font = '400 24px "JetBrains Mono", ui-monospace, monospace';
+        ctx.fillText(L.sub, x, y + 32);
+      }
+      ctx.shadowBlur = 0;
+    }
+    ctx.globalAlpha = 1;
+    ctx.textAlign = 'left';
+  }
+
+  stackIcon(layer) {
+    const h = React.createElement;
+    const paths = [];
+    [180, 136, 92, 48].forEach((y, i) => {
+      const on = i === layer;
+      const line = { fill: '#000', stroke: 'rgba(255,255,255,0.42)', strokeWidth: 1.5, vectorEffect: 'non-scaling-stroke', strokeLinejoin: 'round' };
+      paths.push(h('path', Object.assign({ key: i + 'l', d: 'M10 ' + y + 'L70 ' + (y + 35) + 'L70 ' + (y + 43) + 'L10 ' + (y + 8) + 'Z' }, on ? { fill: '#7a7a7a' } : line)));
+      paths.push(h('path', Object.assign({ key: i + 'r', d: 'M70 ' + (y + 35) + 'L130 ' + y + 'L130 ' + (y + 8) + 'L70 ' + (y + 43) + 'Z' }, on ? { fill: '#bdbdbd' } : line)));
+      paths.push(h('path', Object.assign({ key: i + 't', d: 'M70 ' + (y - 35) + 'L130 ' + y + 'L70 ' + (y + 35) + 'L10 ' + y + 'Z' }, on ? { fill: '#ffffff' } : line)));
+    });
+    return h('svg', { viewBox: '0 8 140 220', width: 72, height: 113, style: { display: 'block', overflow: 'visible' } }, paths);
+  }
+
+  svgGlyph(kind, size) {
+    const h = React.createElement, s = size / 2;
+    const d = kind === 'mine' ? 'M12 3L22 19H2Z' : kind === 'oil' ? 'M12 2L20 12L12 22L4 12Z' : kind === 'ship' ? 'M2 11H22L18 19H6ZM10.5 4H13.5V11H10.5Z'
+      : kind === 'dot' ? 'M12 8a4 4 0 1 0 0 8a4 4 0 1 0 0-8' : kind === 'dc' ? 'M6 6H18V18H6Z' : kind === 'truck' ? 'M3 8H21V16H3Z' : kind === 'plant' ? 'M12 4a8 8 0 1 0 0 16a8 8 0 1 0 0-16M12 9a3 3 0 1 0 0 6a3 3 0 1 0 0-6' : 'M4 12H20';
+    return h('svg', { viewBox: '0 0 24 24', width: size, height: size, style: { display: 'block' } }, h('path', { d, fill: kind === 'plant' ? 'none' : 'currentColor', stroke: kind === 'plant' ? 'currentColor' : 'none', strokeWidth: 2.4, fillRule: 'evenodd' }));
+  }
+
+  renderVals() {
+    const s = this.state, V = this.VIEWS[s.view], id = V.id;
+    if (!this._canvasEl) this._canvasEl = React.createElement('canvas', { ref: this.canvasRef, width: Math.round(this.W * this.BR), height: Math.round(this.H * this.BR), style: { position: 'absolute', left: 0, top: 0, width: this.W + 'px', height: this.H + 'px', display: 'block' } });
+    const is = {};
+    this.VIEWS.forEach((v) => { is[v.id] = v.id === id; });
+    const phase = s.dcPhase;
+    const red = '#f85149', green = '#3fb950', amber = '#F5A623';
+    const pill = (dot, color, strong) => ({ dot, pillColor: color, pillBorder: strong ? dot : 'rgba(255,255,255,0.2)', pillBg: strong ? this.tint(dot, 0.12) : 'transparent' });
+    const dcRows = [
+      Object.assign({ name: 'Site LAN', tag: false, nameColor: phase ? 'rgba(255,255,255,0.45)' : '#fff', status: phase ? 'Site network down' : 'Connected', flowClass: phase ? '' : 'cs-flow', flowOp: phase ? 0 : 0.8 },
+        phase ? pill(red, '#fff', true) : pill('rgba(255,255,255,0.8)', 'rgba(255,255,255,0.8)', false)),
+      Object.assign({ name: 'Cellular modem', tag: false, nameColor: 'rgba(255,255,255,0.8)', status: 'Depends on coverage', flowClass: '', flowOp: 0 }, pill(amber, 'rgba(255,255,255,0.8)', false)),
+      Object.assign({ name: 'Starlink', tag: true, nameColor: '#fff', status: phase ? 'Carrying telemetry' : 'Standby', flowClass: phase ? 'cs-flow' : '', flowOp: phase ? 1 : 0 },
+        phase ? pill(green, '#fff', true) : pill('rgba(255,255,255,0.35)', 'rgba(255,255,255,0.6)', false)),
+    ];
+    const p = s.crewP;
+    const arrived = p >= 0.999;
+    const crewRows = [
+      { name: 'Starlink link', value: 'Online', dot: green },
+      { name: 'Fault codes', value: 'Synced', dot: green },
+      { name: 'Parts lookup', value: 'Online', dot: green },
+      { name: 'Work order', value: p < 0.02 ? 'At branch' : arrived ? 'On site' : 'En route', dot: arrived ? green : amber },
+    ];
+    const flag = this.hook('flag') || '';
+    const proof = [
+      { kind: 'Retail', name: 'Casey’s', line: 'Starlink at nearly 470 stores.', tie: 'For Cummins: branches and dealers', source: 'Starlink case study, Casey’s' },
+      { kind: 'Oil and gas', name: 'Williams', line: 'A published Starlink case study from oil and gas operations.', tie: 'For Cummins: oil and gas sites', source: 'Starlink case study, Williams' },
+      { kind: 'Marine', name: 'TGS', line: 'Real time data transfer from seismic vessels 138 miles above the Arctic Circle.', tie: 'For Cummins: marine engines', source: 'TGS technical library' },
+      { kind: 'Mining', name: 'Third party', line: 'Integrator case studies from mine sites, including Enga.', tie: 'For Cummins: mining', source: 'Remington Communications; Network Innovations' },
+    ].map((c, i) => Object.assign(c, { flag, delay: (0.3 + i * 0.12) + 's' }));
+    const viewOf = (vid) => this.VIEWS.findIndex((v) => v.id === vid);
+    const fits = [
+      ['branches', 'dot', 'Grow Distribution, the largest segment', '10K FY2025: 640 distributors, 13,000+ dealers', 'A second path at every branch and dealer'],
+      ['dc', 'dc', 'Power data center growth', 'Q2 2026: Power Systems sales up 19%', 'A path home for every genset gateway'],
+      ['remote', 'mine', 'Invest in mining and power generation', 'Analyst Day, May 2026', 'Coverage at the pit, the pad and the deck'],
+      ['crew', 'truck', 'Serve customers in 190+ countries', 'Distribution: more than 15,000 people', 'The branch connection, in the service truck'],
+      ['plants', 'plant', 'Scale AI beyond pilot programs', 'Operations, LNS Research, Oct 2026', 'A second path beside each plant carrier'],
+    ].map(([vid, g, name, src, help], i) => ({ name, src, help, glyph: this.svgGlyph(g, 28), delay: (0.3 + i * 0.1) + 's', go: () => this.go(viewOf(vid)) }));
+    const chipDefs = [[null, 'All', 'dot'], ['dealers', 'Branches', 'dot'], ['dc', 'Data centers', 'dc'], ['remote', 'Mines, oil, marine', 'mine'], ['fleet', 'Field crews', 'truck'], ['plants', 'Plants', 'plant']];
+    const chips = chipDefs.map(([layer, name, g]) => {
+      const on = s.isolate === layer;
+      return { name, glyph: this.svgGlyph(g, 20), pick: () => { this.setState({ isolate: layer }); if (!this.MOTION) setTimeout(() => this.drawOnce(), 0); },
+        border: on ? '#fff' : 'rgba(255,255,255,0.2)', bg: on ? '#fff' : 'rgba(0,0,0,0.6)', color: on ? '#000' : '#fff' };
+    });
+    return {
+      scale: s.scale, ox: s.ox, oy: s.oy,
+      rootClass: this.STILL ? 'cs-still' : '',
+      canvasEl: this._canvasEl,
+      is,
+      flagged: !!flag,
+      showMarker: id !== 'title',
+      counter: String(s.view + 1).padStart(2, '0') + ' / ' + String(this.VIEWS.length).padStart(2, '0'),
+      sectionName: V.section,
+      stackIcon: this.stackIcon(Math.min(3, Math.floor((s.view - 1) / 2))),
+      footnote: V.foot,
+      showNav: !this.STILL,
+      showHint: !this.STILL && id === 'title',
+      next: () => this.go(this.state.view + 1),
+      back: () => this.go(this.state.view - 1),
+      dcRows,
+      crewPct: Math.round(p * 100) + '%',
+      crewRows,
+      legend: [{ glyph: this.svgGlyph('mine', 24), name: 'Mine' }, { glyph: this.svgGlyph('oil', 24), name: 'Oil and gas' }, { glyph: this.svgGlyph('ship', 24), name: 'Vessel · all ILLUSTRATIVE' }],
+      proof,
+      fits,
+      chips,
+    };
+  }
+
+  tint(hex, a) {
+    if (hex[0] !== '#') return 'transparent';
+    const n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + (n >> 16) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+}
+</script>
+</body>
+</html>
